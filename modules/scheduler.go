@@ -17,7 +17,7 @@ type Scheduler struct {
 	Tasks *[]Task
 }
 
-func (s Scheduler) Start() {
+func (s *Scheduler) Start() {
 
 	c := cron.New(cron.WithSeconds())
 
