@@ -27,6 +27,12 @@ func (bm *BatchManager) Build() *[]modules.Task {
 		},
 	}
 
+	for _, task := range tasks {
+		if task.Error != nil {
+			panic(task.Error)
+		}
+	}
+
 	return &tasks
 }
 
