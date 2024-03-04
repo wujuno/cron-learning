@@ -1,5 +1,7 @@
 package schedule
 
-func (bm *BatchManager) HelloWorldLogHandler() {
+import "fmt"
 
+func (bm *BatchManager) HelloWorldLogHandler() {
+	fmt.Println("Hello World")
 }
