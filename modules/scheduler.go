@@ -18,5 +18,16 @@ type Scheduler struct {
 }
 
 func (s Scheduler) Start() {
-	
+
+	c := cron.New(cron.WithSeconds())
+
+	for _, t := range *s.Tasks {
+		if t.Handler != nil {
+			t.EntryId, t.Error = c.AddFunc(t.Schedule, t.Handler)
+		} else if t.Job != nil {
+			t.EntryId, t.Error = c.AddFunc(t.Schedule, t.Job)
+		}
+	}
+
+	c.Start()
 }
