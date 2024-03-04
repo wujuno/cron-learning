@@ -8,6 +8,7 @@ import (
 func main() {
 	// batch 실행
 	batch := schedule.BatchManager{}
+	
 	if err := batch.Init(); err != nil {
 		fmt.Print("batch Init failed:", err)
 	} else {

@@ -16,3 +16,7 @@ type Task struct {
 type Scheduler struct {
 	Tasks *[]Task
 }
+
+func (s Scheduler) Start() {
+	
+}
