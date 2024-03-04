@@ -13,11 +13,20 @@ func (bm *BatchManager) Init() error {
 	}
 
 	bm.Scheduler.Start()
-	
+
 	return nil
 }
 
 func (bm *BatchManager) Build() *[]modules.Task {
-	return nil
+	
+	tasks := []modules.Task{
+		{
+			Name: "HelloWorldLogHandler",
+			Schedule: `*/10 * * * * *`,
+			Handler: bm.HelloWorldLogHandler,
+		},
+	}
+
+	return &tasks
 }
 
